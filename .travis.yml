@@ -2,8 +2,12 @@ language: node_js
 node_js:
   - 10
 after_success:
+  - npm run coverage && npx codecov
   - mkdir dist
   - cp -R src/index.html src/js dist
+install:
+  - npm i
+  - npm i codecov
 deploy:
   provider: pages
   skip_cleanup: true
