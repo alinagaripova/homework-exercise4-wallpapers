@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "serve": "browser-sync start -s -f \".\"",
+    "serve": "browser-sync start -s \"src\" -f \".\"",
     "test-coverage": "jest --coverage"
   },
   "babel": {
