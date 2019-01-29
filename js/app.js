@@ -15,9 +15,35 @@ function reactToClick() {
     const rollWidth = rollWidthEl.value;
     const rollLength = rollLengthEl.value;
     const result = calculateWallpapers(roomLength1, roomLength2, roomHeight, rollWidth, rollLength);
-    resultEl.textContent = result;
-};
 
+    if (isNaN(roomLength1)) {
+        resultEl.textContent = 'В поле "Ширина 1ой стены" необходимо ввести число.';
+        return;
+    }
+    if (isNaN(roomLength2)) {
+        resultEl.textContent = 'В поле "Ширина 2ой стены" необходимо ввести число.';
+        return;
+    }
+    if (isNaN(roomHeight)) {
+        resultEl.textContent = 'В поле "Высота стены" необходимо ввести число.';
+        return;
+    }
+    if (isNaN(rollWidth)) {
+        resultEl.textContent = 'В поле "Ширина рулона" необходимо ввести число.';
+        return;
+    }
+    if (isNaN(rollLength)) {
+        resultEl.textContent = 'В поле "Длина рулона" необходимо ввести число.';
+        return;
+    }
 
-calculateEl.addEventListener('click', reactToClick);
+    if (result < 0){
+        resultEl.textContent = 'Все введенные данные должны быть положительные.';
+        return;
+    }
+
+    resultEl.textContent = result + ' рулонов.';
+}
+
+calculateEl.addEventListener('click', reactToClick );
 
