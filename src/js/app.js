@@ -16,33 +16,38 @@ function reactToClick() {
     const rollLength = rollLengthEl.value;
     const result = calculateWallpapers(roomLength1, roomLength2, roomHeight, rollWidth, rollLength);
 
-    if (isNaN(roomLength1)) {
-        resultEl.textContent = 'В поле "Ширина 1ой стены" необходимо ввести число.';
-        return;
-    }
-    if (isNaN(roomLength2)) {
-        resultEl.textContent = 'В поле "Ширина 2ой стены" необходимо ввести число.';
-        return;
-    }
-    if (isNaN(roomHeight)) {
-        resultEl.textContent = 'В поле "Высота стены" необходимо ввести число.';
-        return;
-    }
-    if (isNaN(rollWidth)) {
-        resultEl.textContent = 'В поле "Ширина рулона" необходимо ввести число.';
-        return;
-    }
-    if (isNaN(rollLength)) {
-        resultEl.textContent = 'В поле "Длина рулона" необходимо ввести число.';
+    if (roomLength1 > 0) {
+    } else {
+        resultEl.textContent = 'В поле "Ширина 1ой стены" необходимо ввести положительное число.';
         return;
     }
 
-    if (result < 0){
-        resultEl.textContent = 'Все введенные данные должны быть положительные.';
+    if (roomLength2 > 0) {
+    } else {
+        resultEl.textContent = 'В поле "Ширина 2ой стены" необходимо ввести положительное число.';
         return;
     }
 
-    resultEl.textContent = result + ' рулонов.';
+    if (roomHeight > 0) {
+    } else {
+        resultEl.textContent = 'В поле "Высота стены" необходимо ввести положительное число.';
+        return;
+    }
+
+    if (rollWidth > 0) {
+    } else {
+        resultEl.textContent = 'В поле "Ширина рулона" необходимо ввести положительное число.';
+        return;
+    }
+
+    if (rollLength > 0) {
+    } else {
+        resultEl.textContent = 'В поле "Длина рулона" необходимо ввести положительное число.';
+        return;
+    }
+
+    resultEl.textContent = 'Необходимое количество рулонов: ' + result;
+
 }
 
 calculateEl.addEventListener('click', reactToClick );
